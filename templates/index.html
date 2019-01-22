@@ -1,21 +1,38 @@
 <html>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+  </head>
 
-  <h1>Explainable ML for ACS patients</h1>
+  <body>
+    <nav class="navbar navbar-dark bg-primary">
+      <a class="navbar-brand" href="#">
+        Explainable ML for ACS patients
+      </a>
+    </nav>
 
-  <div id='shap_plot'></div>
+    <div class="container">
+      <h3 class='text-center my-3'>Force plots of held out test set</h3>
+      <div id='shap_plot'></div>
+    </div>
 
-  <script>
-  // if (window.SHAP){
-  //   SHAP.ReactDom.render(
-  //     SHAP.React.createElement(SHAP.AdditiveForceVisualizer, {"outNames": ["output value"], "baseValue": <explainer.expected_value>, "outValue": <predicted_value>, "link": "identity", "featureNames": ["foo"], "features": {"0": {"effect": 0.2812443847232262, "value": 512.0}}, "plot_cmap": "RdBu", "labelMargin": 20}),
-  //     document.getElementById('shap_plot')
-  //   );
-  // }
-  </script>
-  <script type="text/javascript" src="{{ url_for('static', filename='bundle.js') }}"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='bundle.js') }}"></script>
+    <script>
+    $(document).ready(function(){
+      $.getJSON("static/data.json", function(data){
+        // console.log(data);
+        if (window.SHAP){
+          SHAP.ReactDom.render(
+            SHAP.React.createElement(SHAP.AdditiveForceArrayVisualizer, data),
+            document.getElementById('shap_plot')
+          );
+        }
+      });
+    });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+  </body>
 </html>
