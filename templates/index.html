@@ -23,8 +23,9 @@
         </div>
       </div>
       <div id="main_pane" class='d-none'>
-        <h3 class='text-center my-3'>Force plot of held out test set</h3>
+        <h3 class='text-center my-3'>Force plot of held out test patients</h3>
         <div id='shap_plot'></div>
+        <hr>
         <h3 class='text-center my-3'>Force plot for individual patients</h3>
         <div class="row">
           <div class="col-2"> <label for="patients_select">Original Patient Index:</label> </div>
@@ -35,6 +36,7 @@
             <button id="patients_select_button" type="button" class="btn btn-primary form-control">Show Patient</button>
           </div>
         </div>
+        <div id='shap_patient_plot' class="my-3"></div>
       </div>
     </div>
 
