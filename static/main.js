@@ -26,7 +26,7 @@ $(document).ready(function(){
             "outNames": ['output value'],
             "baseValue": shap_data.baseValue,
             "outValue": shap_data.explanations[patient_index].outValue,
-            "link": "identity",
+            "link": "logit",
             "featureNames": shap_data.featureNames,
             "features": shap_data.explanations[patient_index].features,
             "plot_cmap": "RdBu",
