@@ -24,6 +24,10 @@ $(document).ready(function(){
     }
 
     $('#patients_select_button').click(function(){
+      if(!$('#explanation_pane').hasClass('d-none')){
+        $('#explanation_pane').addClass('d-none');
+      }
+
       patient_index = $('#patients_select').val();
       if (window.SHAP){
         SHAP.ReactDom.render(

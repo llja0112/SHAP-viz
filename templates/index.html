@@ -24,11 +24,11 @@
       </div>
       <div id="main_pane" class='d-none'>
 
-        <h3 class="text-center my-3">Introduction</h3>
+        <h3 class="my-3">1. Introduction</h3>
         <p>This microsite provides the javascript applet to visualise the explanations of our most predictive Machine Learning (ML) models to predict morbidity and mortality for patients with acute coronary syndrome. We studied n=2,262 patients diagnosed with acute coronary syndrome. SHAP explanations for n=452 patients in the held out test set were extracted for the best performing ML model. We will first show the explanations for individual patients as follows.</p>
 
         <hr>
-        <h3 class="text-center my-3">Guide to interpretating SHAP explanations</h3>
+        <h3 class="my-3">2. Guide to interpretating SHAP explanations</h3>
         <p>We show 5 patients' explanations below. Their original patient indices were 1, 3, 441, 435 and 436. The blue coloured features and their associated values are identified to push the risk lower while the red coloured features and their associated values are identified to push the risk higher.</p>
 
         <h5 class="text-center my-3">SHAP explanation for patient index 1</h5>
@@ -43,13 +43,13 @@
         <div id="shap_patient_436_plot"></div>
 
         <hr>
-        <h3 class='text-center my-3'>Force plot of held out test patients</h3>
+        <h3 class='my-3'>3. Collated explanations of patients in held out test set</h3>
         <p>Collating the explanations into a single plot by rotating all patient explanations 90 degrees, we can make comparisons by filtering for different parameters (e.g. Left ventricular ejection fraction, Total cholesterol, etc.). Clicking on a patient will initiate a popup providing the original index number of the patient. This index can be used in the next section for further analysis.</p>
         <div id='shap_plot'></div>
 
         <hr>
-        <h3 class='text-center my-3'>Force plot for individual patients</h3>
-        <p>Select the original patient index number in the dropdown box to view the explanation of an individual patient’s predicted risk.</p>
+        <h3 class='my-3'>4. Explanation for individual patients</h3>
+        <p>Select the original patient index number in the dropdown box. Click "Show patient" button to view the explanation of an individual patient’s predicted risk.</p>
         <div class="row">
           <div class="col-2"> <label for="patients_select">Original Patient Index:</label> </div>
           <div class="col">
@@ -57,6 +57,12 @@
           </div>
           <div class="col-2">
             <button id="patients_select_button" type="button" class="btn btn-primary form-control">Show Patient</button>
+          </div>
+        </div>
+        <div id="explanation_pane" class="jumbotron text-center my-3">
+          <h3>View individual patient explanation here.</h3>
+          <div class="text-muted">
+            <p>Explanation visualisation will replace this box.</p>
           </div>
         </div>
         <div id='shap_patient_plot' class="my-3"></div>
